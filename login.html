@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contract Farming Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right,  #2E7D32, #1E90FF); /* green to blue */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      width: 300px;
+    }
+
+    .login-box h2 {
+      text-align: center;
+      color: #1E90FF;
+      margin-bottom: 20px;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #32CD32;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background-color: #28a428;
+    }
+
+    .message {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Contract Farming Login</h2>
+    <input type="text" id="username" placeholder="Enter Username" />
+    <input type="password" id="password" placeholder="Enter Password" />
+    <button onclick="validateLogin()">Login</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      const messageDiv = document.getElementById('message');
+      messageDiv.className = 'message';
+
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
+      if (username === '') {
+        messageDiv.innerText = "Username is required.";
+        messageDiv.classList.add('error');
+        return;
+      }
+
+      if (!passwordRegex.test(password)) {
+        messageDiv.innerText = "Password must be 8+ characters, include uppercase, lowercase, number, and special character.";
+        messageDiv.classList.add('error');
+        return;
+      }
+
+      messageDiv.innerText = "Login Successful!";
+      messageDiv.classList.remove('error');
+      messageDiv.classList.add('success');
+    }
+  </script>
+
+</body>
+</html>
