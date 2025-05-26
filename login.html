@@ -1,110 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contract Farming Login</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right,  #2E7D32, #1E90FF); /* green to blue */
+      font-family: 'Segoe UI', sans-serif;
+      background: url("images/loginbackgroundimage.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      backdrop-filter: blur(5px);
     }
 
     .login-box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      width: 300px;
-    }
-
-    .login-box h2 {
+      background-color: #ffffffee;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
       text-align: center;
-      color: #1E90FF;
-      margin-bottom: 20px;
     }
 
-    .login-box input[type="text"],
-    .login-box input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+    .login-box h1 {
+      margin-bottom: 5px;
+      color: #2c5f2d;
     }
 
-    .login-box button {
+    .login-box p#role-text {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #444;
+      font-weight: 600;
+    }
+
+   /* Toggle Switch Container */
+.toggle-switch {
+  position: relative;
+  width: 40px;    /* smaller width */
+  height: 20px;   /* smaller height */
+  margin: 15px auto 30px auto;
+}
+
+/* Hide default checkbox */
+.toggle-switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #6536f4; /* red by default (Buyer) */
+  border-radius: 34px;
+  transition: 0.4s;
+  border: 2px solid #4d30b5;
+}
+
+/* The circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;   /* smaller knob */
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked state */
+.toggle-switch input:checked + .slider {
+  background-color: #4caf50; /* green when ON (Farmer) */
+  border-color: #3a7d31;
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(20px); /* slide knob right */
+}
+
+/* Labels inside toggle */
+.toggle-labels {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 0.7rem;  /* smaller font size */
+  margin-top: 4px;
+  color: #555;
+  user-select: none;
+  padding: 0 5px;
+}
+
+.toggle-labels span {
+  width: 20px; /* smaller width */
+  text-align: center;
+}
+
+
+    input[type="text"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
-      background-color: #32CD32;
-      border: none;
+      margin: 8px 0;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+    }
+
+    .checkbox {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 0.9rem;
+      margin: 5px 0 15px;
+    }
+
+    .checkbox label {
+      margin-left: 5px;
+    }
+
+    .login-box button.login-btn {
+      width: 100%;
+      background-color: #2c5f2d;
       color: white;
-      font-weight: bold;
-      border-radius: 6px;
+      padding: 10px;
+      border: none;
+      margin-top: 15px;
+      border-radius: 5px;
       cursor: pointer;
     }
 
-    .login-box button:hover {
-      background-color: #28a428;
+    .login-box .signup {
+      margin-top: 15px;
+      font-size: 0.9rem;
     }
 
-    .message {
-      margin-top: 10px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-    .error {
+    .error-msg {
       color: red;
+      font-size: 0.85rem;
+      display: none;
     }
 
-    .success {
-      color: green;
+    @media (max-width: 480px) {
+      .login-box {
+        margin: 0 15px;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="login-box">
-    <h2>Contract Farming Login</h2>
-    <input type="text" id="username" placeholder="Enter Username" />
-    <input type="password" id="password" placeholder="Enter Password" />
-    <button onclick="validateLogin()">Login</button>
-    <div class="message" id="message"></div>
+    <h1 style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <span
+        style="width: 60px; height: 60px; border-radius: 50%; background-color: #284f45; border: 3px solid #3a7464; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="images/logo.jpg" alt="CropSet Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+      </span>
+      <span style="color: #2c5f2d; font-weight: bold; font-size: 1.8rem;">CropSet</span>
+    </h1>
+
+    <p id="role-text">Login as Buyer</p>
+
+    <div class="toggle-switch">
+      <input type="checkbox" id="role-toggle" />
+      <label for="role-toggle" class="slider"></label>
+      
+    </div>
+
+    <input type="text" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <span class="error-msg" id="error">Invalid email or password.</span>
+
+    <div class="checkbox">
+      <input type="checkbox" id="remember" />
+      <label for="remember">Remember me</label>
+    </div>
+
+    <button class="login-btn" onclick="login()">Login</button>
+
+    <div class="signup">New here? <a href="#">Create an account</a></div>
   </div>
 
   <script>
-    function validateLogin() {
-      const username = document.getElementById('username').value.trim();
+    const toggle = document.getElementById('role-toggle');
+    const roleText = document.getElementById('role-text');
+
+    // Set initial role text based on toggle default state (unchecked = Buyer)
+    roleText.textContent = toggle.checked ? 'Login as Farmer' : 'Login as Buyer';
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        roleText.textContent = 'Login as Farmer';
+      } else {
+        roleText.textContent = 'Login as Buyer';
+      }
+    });
+
+    function login() {
+      const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
+      const error = document.getElementById('error');
 
-      const messageDiv = document.getElementById('message');
-      messageDiv.className = 'message';
-
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
-      if (username === '') {
-        messageDiv.innerText = "Username is required.";
-        messageDiv.classList.add('error');
+      if (email === "" || password === "") {
+        error.style.display = "block";
+        error.textContent = "Please fill in all fields.";
         return;
       }
 
-      if (!passwordRegex.test(password)) {
-        messageDiv.innerText = "Password must be 8+ characters, include uppercase, lowercase, number, and special character.";
-        messageDiv.classList.add('error');
-        return;
+      // Dummy validation
+      if (email === "test@example.com" && password === "1234") {
+        alert("Login successful!");
+        error.style.display = "none";
+      } else {
+        error.style.display = "block";
+        error.textContent = "Invalid email or password.";
       }
-
-      messageDiv.innerText = "Login Successful!";
-      messageDiv.classList.remove('error');
-      messageDiv.classList.add('success');
     }
   </script>
-
 </body>
+
 </html>
