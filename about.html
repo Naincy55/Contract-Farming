@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - CropSet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f9f6;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    @keyframes colorFade {
+      0% {
+        background-color: #2c5f2d; /* Dark Green */
+      }
+      50% {
+        background-color: #199f6e; /* Light Yellow */
+      }
+      100% {
+        background-color: #2c5f2d;
+      }
+    }
+
+    header {
+      animation: colorFade 10s ease-in-out infinite;
+      transition: background-color 1s ease;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider {
+      position: relative;
+      max-width: 100%;
+      height: 200px;
+      margin-top: 1rem;
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+    }
+
+    .slide-image.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #2c5f2d;
+      margin-top: 2rem;
+      transition: transform 0.3s;
+    }
+
+    h2:hover {
+      transform: scale(1.05);
+    }
+
+    p:hover {
+      font-weight: bold;
+    }
+
+    ul:hover {
+      font-style: oblique;
+    }
+
+    .feature-list {
+      display: inline-grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .feature {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .team-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .team-member {
+      flex: 1 1 45%;
+      background-color: #e8f5e9;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2c5f2d;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .team-member {
+        flex: 1 1 100%;
+      }
+
+      .slider {
+        height: 150px;
+      }
+
+      .slide-image {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>About CropSet</h1>
+    <p>Empowering Farmers. Enabling Buyers. Ensuring Growth.</p>
+
+    <div class="slider">
+      <img src="images/img1.jpg" class="slide-image active" />
+      <img src="images/img2.jpg" class="slide-image active" />
+      <img src="images/img3.jpg" class="slide-image active" />
+      <img src="images/img4.jpg" class="slide-image active" />
+
+      
+    </div>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2><strong>Our Mission</strong></h2>
+      <p>
+        At CropSet, we aim to revolutionize the agriculture ecosystem by connecting farmers and buyers through transparent, secure, and profitable contract farming. Our goal is to ensure stable market access for farmers and consistent quality produce for buyers.
+      </p>
+    </section>
+
+    <section>
+      <h2><strong>The Problem We Solve</strong></h2>
+      <p>
+        Farmers often face unpredictable markets, unfair pricing, and delayed payments. Buyers struggle to source reliable produce consistently. CropSet bridges this gap with a digital platform that simplifies contracting, communication, and payment tracking.
+      </p>
+    </section>
+
+    <section>
+      <h2><strong>Our Solution</strong></h2>
+      <ul>
+        <li>Buyer-Farmer Role-Based Login</li>
+        <li>Digital contract generation & tracking</li>
+        <li>Payment milestone notifications</li>
+        <li>Verified user profiles</li>
+        <li>Real-time communication and alerts</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><strong>Key Features</strong></h2>
+      <div class="feature-list">
+        <div class="feature">
+          <strong>Secure Login System</strong>
+          <p>Buyer and Farmer roles with toggle-based login & authentication.</p>
+        </div>
+        <div class="feature">
+          <strong>Digital Contracts</strong>
+          <p>Create and manage farming contracts easily with full transparency.</p>
+        </div>
+        <div class="feature">
+          <strong>Payment Tracker</strong>
+          <p>Track advances and final payments with timely updates.</p>
+        </div>
+        <div class="feature">
+          <strong>Responsive Design</strong>
+          <p>Accessible across all devices for seamless experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><strong>Meet the Team</strong></h2>
+      <div class="team-section">
+        <div class="team-member">
+          <strong>Naincy Jaiswal</strong>
+          <p>Frontend Developer</p>
+        </div>
+        <div class="team-member">
+          <strong>Swikriti Suman</strong>
+          <p>Backend Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><strong>Our Vision</strong></h2>
+      <p>
+        We envision CropSet expanding across regions, offering predictive analytics, AI-powered crop monitoring, and financial insights for all users – with regional language support for inclusivity.
+      </p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 CropSet | Built with ❤️</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide-image');
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }
+
+    setInterval(showSlides, 3000);
+  </script>
+</body>
+</html>
