@@ -187,17 +187,17 @@
     const loginButton = document.getElementById('login-button');
 
     // Set initial background and button
-    body.style.backgroundImage = 'url("")'; 
+    body.style.backgroundImage = 'url("https://images.pexels.com/photos/95425/pexels-photo-95425.jpeg?auto=compress&cs=tinysrgb&w=600")'; 
 
     toggle.addEventListener('change', () => {
       if (toggle.checked) {
         roleText.textContent = 'Login as Farmer';
-        body.style.backgroundImage = 'url("images/farmer.jpg")';
+        body.style.backgroundImage = 'url("https://images.pexels.com/photos/2131784/pexels-photo-2131784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")';
         loginButton.classList.remove('buyer');
         loginButton.classList.add('farmer');
       } else {
         roleText.textContent = 'Login as Buyer';
-        body.style.backgroundImage = 'url("images/buyer.jpg")';
+        body.style.backgroundImage = 'url("https://images.pexels.com/photos/95425/pexels-photo-95425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")';
         loginButton.classList.remove('farmer');
         loginButton.classList.add('buyer');
       }
