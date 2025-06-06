@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us - Contract Farming</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+        }
+
+        .contact-section {
+            background: url("https://images.pexels.com/photos/927805/pexels-photo-927805.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.88);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        form textarea {
+            resize: vertical;
+        }
+
+        form button {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #388e3c;
+        }
+
+        .social-links a {
+            margin-right: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #2e7d32;
+        }
+
+        #toast {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .box {
+                width: 100%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="contact-section">
+        <div class="container">
+
+            <!-- Box 1: Contact Info -->
+            <div class="box">
+                <h2>Get in Touch</h2>
+                <p>We’re here to help farmers and buyers connect with confidence and clarity.</p>
+                <p><strong>📍 Address:</strong> 123 Green Lane, AgriHub, Bihar, India</p>
+                <p><strong>📞 Phone:</strong> +91-9876543210</p>
+                <p><strong>📧 Email:</strong> support@cropSet.com</p>
+                <div class="social-links">
+                    <a href="https://cropset.com" target="_blank" rel="noopener noreferrer">🌐 Website</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+
+                </div>
+            </div>
+
+            <!-- Box 2: Contact Form -->
+            <div class="box">
+                <h2>Send a Message</h2>
+                <form onsubmit="event.preventDefault(); showToast();">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                    <input type="email" name="email" placeholder="Your Email" required />
+                    <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast">✅ Message sent successfully!</div>
+
+    <!-- Toast Script -->
+    <script>
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>
