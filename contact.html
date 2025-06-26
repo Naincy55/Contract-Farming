@@ -130,41 +130,46 @@
                 <p><strong>📞 Phone:</strong> +91-9876543210</p>
                 <p><strong>📧 Email:</strong> support@cropSet.com</p>
                 <div class="social-links">
+                    
                     <a href="https://cropset.com" target="_blank" rel="noopener noreferrer">🌐 Website</a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-
+                        
                 </div>
             </div>
 
-            <!-- Box 2: Contact Form -->
-            <div class="box">
-                <h2>Send a Message</h2>
-                <form onsubmit="event.preventDefault(); showToast();">
-                    <input type="text" name="name" placeholder="Your Name" required />
-                    <input type="email" name="email" placeholder="Your Email" required />
-                    <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+            
+
+<div class="box">
+    <h2>Send a Message</h2>
+  <form id="contact-form" action="https://formspree.io/f/mrbkolnq" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<div id="toast">Thank you! Your message has been sent.</div>
+<script>
+function showToast() {
+    event.preventDefault(); // Prevent form from submitting immediately
+    document.getElementById('toast').style.display = 'block';
+    setTimeout(function() {
+        document.getElementById('toast').style.display = 'none';
+        document.getElementById('contact-form').submit(); // Now submit the form
+    }, 2000); // Show toast for 2 seconds
+}
+</script>
 
         </div>
     </section>
 
-    <!-- Toast Notification -->
-    <div id="toast">✅ Message sent successfully!</div>
+   
 
-    <!-- Toast Script -->
-    <script>
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.style.display = 'block';
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 3000);
-        }
-    </script>
-
+   
+    <script src="contact-handler.js"></script>
+    
 </body>
 
 </html>
