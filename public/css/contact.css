@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.contact-section {
+  background: url("https://images.pexels.com/photos/927805/pexels-photo-927805.jpeg?auto=compress&cs=tinysrgb&w=600") no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.88);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+p {
+  margin: 8px 0;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #388e3c;
+}
+
+.social-links a {
+  margin-right: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #2e7d32;
+}
+
+#toast {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .box {
+    width: 100%;
+    padding: 30px;
+  }
+}

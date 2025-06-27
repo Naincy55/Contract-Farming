@@ -1,0 +1,134 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #2E7D32, #F5F5DC);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.navbar-brand span {
+  color: #F5F5DC;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #2E7D32;
+}
+
+.navbar-links a {
+  color: #16b61e;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus {
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links a {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  margin: 4rem auto;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; /* Corrected from top: 100; */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.overlay button {
+  margin-top: 150px; /* Corrected from margin-top: 150px; */
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #F5F5DC;
+  color: #2E7D32;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.overlay button:hover {
+  background-color: #dce775;
+}

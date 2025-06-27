@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Contract Farming</title>
+ <link rel="stylesheet" href="css/contact.css" />
+</head>
+
+<body>
+
+  <section class="contact-section">
+    <div class="container">
+
+      <!-- Box 1: Contact Info -->
+      <div class="box">
+        <h2>Get in Touch</h2>
+        <p>We’re here to help farmers and buyers connect with confidence and clarity.</p>
+        <p><strong>📍 Address:</strong> 123 Green Lane, AgriHub, Bihar, India</p>
+        <p><strong>📞 Phone:</strong> +91-9876543210</p>
+        <p><strong>📧 Email:</strong> support@cropSet.com</p>
+        <div class="social-links">
+          <a href="https://cropset.com" target="_blank" rel="noopener noreferrer">🌐 Website</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+        </div>
+      </div>
+
+      <!-- Box 2: Contact Form -->
+      
+
+<div class="box">
+    <h2>Send a Message</h2>
+  <form id="contact-form" action="https://formspree.io/f/mrbkolnq" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+<div id="toast">Thank you! Your message has been sent.</div>
+
+<script src="js/contact.js"></script>
+</body>
+
+</html>
