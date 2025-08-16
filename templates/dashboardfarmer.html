@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Success Farmer</title>
+   <link rel="stylesheet" href="css/dashboardfarmer.css" />
+
+    <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="images/logo.jpg" alt="Cropset logo" class="brand-logo" />
+        <span class="brand-title">Hi Farmer!</span>
+      </div>
+
+      <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+
+      <nav class="nav" id="mainNav">
+        <ul class="nav-list">
+   <!-- <li><a href="#dashboard">Dashboard</a></li> -->
+  <li><a href="#add-crop">Add Crop</a></li>
+  <li><a href="#my-crops">My Crops</a></li>
+   <li><a href="#crop-categories">Crop Type</a></li>
+ <!-- <li><a href="#contracts">My Contracts</a></li> -->
+ <!-- <li><a href="#messages">Messages</a></li>-->
+
+  <!-- Profile menu -->
+  <li class="profile-menu" id="profileMenu">
+    <button class="profile-btn" id="profileBtn" aria-haspopup="true" aria-expanded="false">
+      <img id="navbarProfilePic" class="avatar-sm" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="profile" />
+      <span class="profile-label">Profile</span>
+    </button>
+
+    <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+      <div class="profile-top">
+        <img id="dropdownProfilePic" class="avatar-lg" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="profile large"/>
+        <div class="profile-meta">
+          <div id="dropdownName" class="p-name">Your Name</div>
+          <div id="dropdownContact" class="p-contact">Contact</div>
+          <div id="dropdownRegion" class="p-region">Region</div>
+        </div>
+      </div>
+      <div class="profile-actions">
+       <!-- <button id="updateProfileBtn" class="btn primary">Update Profile</button> -->
+        <button id="logoutBtn" class="btn outline">Logout</button>
+      </div>
+    </div>
+  </li>
+</ul>
+      </nav>
+    </div>
+    <!-- subtle header gradient bar -->
+    <div class="header-gradient"></div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <!-- Dashboard -->
+    <section id="dashboard">
+      <div class="panel-head">
+        <h1>Farmer Dashboard</h1>
+        <p class="muted">Quick summary of your crops, contracts and earnings</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📄</div>
+          <div class="stat-body">
+            <div class="stat-label">Total Contracts</div>
+            <div id="totalContracts" class="stat-value">10</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-body">
+            <div class="stat-label">Active</div>
+            <div id="activeContracts" class="stat-value">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-body">
+            <div class="stat-label">Pending</div>
+            <div id="pendingRequests" class="stat-value">0</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-body">
+            <div class="stat-label">Total Earnings</div>
+            <div id="totalEarnings" class="stat-value">₹0</div>
+          </div>
+        </div>
+      </div>
+
+       </div>
+    </section>
+
+      <!-- <div class="panel-row">
+        <div class="card chart-card">
+          <h3>Crop-wise Earnings</h3>
+          <canvas id="earningsChart" height="140"></canvas>
+        </div> -->
+
+      <!--   <div class="card notices-card">
+          <h3>Recent Messages</h3>
+          <ul id="recentMessages" class="messages-list">
+           JS will populate 
+           </ul>
+        </div>  -->
+     
+
+    <!-- Add crop -->
+    <section id="add-crop" class="panel">
+      <div class="panel-head">
+        <h2>Add New Crop</h2>
+      </div>
+
+      <form id="cropForm" class="form-grid card">
+        <input id="cropName" type="text" placeholder="Crop name (e.g., Tomatoes)" required />
+        <input id="cropQty" type="number" placeholder="Quantity (kg)" required />
+        <input id="harvestDate" type="date" />
+       <input id="cropLocation" type="text" placeholder="Location" /> 
+        <input id="cropPrice" type="number" placeholder="Price per kg (₹)" />
+        <input id="cropImage" type="file" accept="image/*" />
+        <div class="preview-wrap">
+          <img id="preview" alt="preview" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Add Crop</button>
+          
+          <button type="reset" class="btn outline">Reset</button>
+        </div>
+      </form>
+    </section>
+    <!-- My crops -->
+    <section id="my-crops" class="panel">
+      <div class="panel-head">
+        <h2>My Crops</h2>
+      </div>
+      <div id="cropList" class="grid-crops">
+
+
+
+
+
+      </div>
+    </section>
+
+
+
+
+     <!-- Crop categories -->
+    <section id="crop-categories" class="panel">
+      <div class="panel-head">
+        <h2>Explore Crops by Season</h2>
+      </div>
+
+      <div class="chip-row">
+        <button class="chip" data-type="rabi">Rabi</button>
+        <button class="chip" data-type="kharif">Kharif</button>
+        <button class="chip" data-type="zaid">Zaid</button>
+      </div>
+
+      <div id="seasonCropList" class="grid-crops"></div>
+    </section>
+
+    <!-- Contracts 
+    <section id="contracts" class="panel">
+      <div class="panel-head"><h2>My Contracts</h2></div>
+      <div id="contractList" class="grid-compact"></div>
+    </section>
+
+     Messages 
+    <section id="messages" class="panel">
+      <div class="panel-head"><h2>Messages</h2></div>
+      <div id="messagesList" class="grid-compact"></div>
+    </section> -->
+
+    <!-- Profile 
+    <section id="profile" class="panel">
+      <div class="panel-head"><h2>My Profile</h2></div>  -->
+
+      <form id="profileForm" class="card form-grid">
+        <input id="name" type="text" placeholder="Full name" required />
+        <input id="farm" type="text" placeholder="Farm name / Address" />
+        <input id="contact" type="tel" placeholder="Contact number" />
+        <input id="region" type="text" placeholder="Region / State" />
+        <label for="profileImage" class="muted">Profile Image</label>
+        <input id="profileImage" type="file" accept="image/*" />
+        <div class="preview-wrap">
+          <img id="profilePreview" alt="profile preview" />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save Profile</button>
+          <button type="button" id="clearProfile" class="btn outline">Clear</button>
+          
+        </div>
+      </form>
+    </section> 
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Cropset — built with care.</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+<script src="js/dashboardfarmer.js">
+
+
+
+
+
+
+  
+</script>
+</body>
+</html>

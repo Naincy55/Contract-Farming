@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Us Today!</title>
+    <link rel="stylesheet" href="css/newaccountfar.css" />
+  </head>
+  <body>
+    <div class="signup-box">
+      <h2>Join Us today!</h2>
+      <form id="signupForm">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="phone" placeholder="Phone Number" required />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Create Password"
+          required
+        />
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Confirm Password"
+          required
+        />
+
+        <!-- ✅ Hidden input for user role -->
+        <input type="hidden" name="role" id="role" value="" />
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <div class="footer-text">
+        Already have an account? <a href="/loginfarmer">Login here</a>
+      </div>
+    </div>
+
+    <script src="js/newaccountfar.js"></script>
+  </body>
+</html>
