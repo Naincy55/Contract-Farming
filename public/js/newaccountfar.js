@@ -1,12 +1,28 @@
+function handleSignup(e) {
+  e.preventDefault();
+
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm_password').value;
+
+  if (password !== confirmPassword) {
+    alert("❌ Passwords do not match!");
+    return false;
+  }
+
+  // Optionally reset the form
+  document.getElementById('signupForm').reset();
+  return true;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("signupForm");
   const roleInput = document.getElementById("role");
 
-  // Default role is farmer for this signup page
-  roleInput.value = "farmer";
+  // 🔁 Set default role here (farmer or buyer)
+  roleInput.value = "farmer"; // Change to "buyer" if needed
 
   form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+    e.preventDefault(); // ⛔ Prevent default form submission
 
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm_password").value;
@@ -23,26 +39,31 @@ document.addEventListener("DOMContentLoaded", function () {
       phone: formData.get("phone"),
       password: formData.get("password"),
       confirm_password: formData.get("confirm_password"),
-      role: formData.get("role"),
+      role: formData.get("role"), // ✅ Add this line
     };
 
     try {
       const response = await fetch("/auth/signup", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       });
 
       const result = await response.json();
 
       if (result.success) {
-        // Match the same key your dashboard uses for the popup
-        sessionStorage.setItem("loginSuccess", "true");
+        // ✅ Set sessionStorage flag for popup on dashboard
+        sessionStorage.setItem("signupSuccess", "true");
+        // ✅ Store dbName from backend
+  sessionStorage.setItem("dbName", result.dbName);
 
-        // Make sure redirect is set in backend
-        window.location.href = result.redirect;
+
+        // ✅ Redirect to dashboard
+        window.location.href = '/loginfarmer';
       } else {
-        alert(result.message || "❌ Something went wrong.");
+        alert(result.message);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -50,3 +71,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+

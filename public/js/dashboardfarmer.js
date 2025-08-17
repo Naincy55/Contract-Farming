@@ -57,6 +57,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
+
+
+
+
+
+
+
+
+
 /* scripts.js - interaction for Cropset */
 /* defensive helpers */
 const $ = id => document.getElementById(id);
@@ -238,59 +247,44 @@ function renderStats() {
 
 
 
-function renderMessages(){
-  const list = $('recentMessages');
-  const list2 = $('messagesList');
-  if(list) list.innerHTML = messages.slice(0,3).map(m => `<li><strong>${escapeHtml(m.from)}:</strong> ${escapeHtml(m.text)}</li>`).join('');
-  if(list2) list2.innerHTML = messages.map(m => `<div class="card"><strong>${escapeHtml(m.from)}</strong><div class="muted">${escapeHtml(m.text)}</div></div>`).join('');
-}
-
-function renderCropTypes(type){
-  const container = $('seasonCropList');
-  if(!container) return;
-  const arr = cropData[type] || [];
-  container.innerHTML = arr.map(c => `
-    <div class="crop-card">
-      <img src="${c.img}" alt="${escapeHtml(c.name)}">
-      <div><strong>${escapeHtml(c.name)}</strong></div>
-    </div>
-  `).join('');
-}
-
-
-
 async function renderCropsList() {
   const container = document.getElementById("cropList");
   if (!container) return;
 
   try {
-    const res = await fetch("/crops");
+    const res = await fetch("/crops/my-crops");
+    if (!res.ok) throw new Error("Network response was not ok");
+
     const data = await res.json();
 
-    if (!data.success || data.crops.length === 0) {
+    if (!data.success || !data.crops || data.crops.length === 0) {
       container.innerHTML = `<div class="card">No crops added yet.</div>`;
       frontendCrops = [];
       renderStats();
       return;
     }
 
+    // ✅ map crops
     frontendCrops = data.crops.map(c => ({
       cropName: c.cropName,
       quantity: parseFloat(c.quantity),
       price: parseFloat(c.price)
     }));
 
-    container.innerHTML = data.crops.map((c) => `
+    // ✅ render crops (prepend /uploads/ for images)
+    container.innerHTML = data.crops.map(c => `
       <div class="crop-card" data-id="${c._id}">
         <button class="delete-btn" data-id="${c._id}" title="Remove Crop">🗑</button>
-         ${c.img ? `<img src="${c.img}" alt="${escapeHtml(c.cropName)}">` : ""}
+        ${c.img ? `<img src="/uploads/${c.img}" alt="${escapeHtml(c.cropName)}">` : ""}
         <div><strong>${escapeHtml(c.cropName)}</strong></div>
         <div class="muted">Qty: ${escapeHtml(c.quantity || '')} kg • ₹${escapeHtml(c.price || '')}/kg</div>
-        <div class="muted">${escapeHtml(c.location || '')} • ${new Date(c.harvestDate).toLocaleDateString()}</div>
+        <div class="muted">${escapeHtml(c.location || '')} • ${c.harvestDate ? new Date(c.harvestDate).toLocaleDateString() : ""}</div>
       </div>
     `).join('');
+
     renderStats();
 
+    // ✅ handle delete
     document.querySelectorAll('.delete-btn').forEach(btn => {
       btn.addEventListener('click', async (e) => {
         const cropId = e.target.dataset.id;
@@ -318,6 +312,8 @@ async function renderCropsList() {
     container.innerHTML = `<div class="card">Failed to load crops.</div>`;
   }
 }
+
+
 
 
 
@@ -373,6 +369,25 @@ async function renderCropsList() {
 
 
 
+
+function renderMessages(){
+  const list = $('recentMessages');
+  const list2 = $('messagesList');
+  if(list) list.innerHTML = messages.slice(0,3).map(m => `<li><strong>${escapeHtml(m.from)}:</strong> ${escapeHtml(m.text)}</li>`).join('');
+  if(list2) list2.innerHTML = messages.map(m => `<div class="card"><strong>${escapeHtml(m.from)}</strong><div class="muted">${escapeHtml(m.text)}</div></div>`).join('');
+}
+
+function renderCropTypes(type){
+  const container = $('seasonCropList');
+  if(!container) return;
+  const arr = cropData[type] || [];
+  container.innerHTML = arr.map(c => `
+    <div class="crop-card">
+      <img src="${c.img}" alt="${escapeHtml(c.name)}">
+      <div><strong>${escapeHtml(c.name)}</strong></div>
+    </div>
+  `).join('');
+}
 
 
 

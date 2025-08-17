@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 
 const cropSchema = new mongoose.Schema({
@@ -7,9 +8,17 @@ const cropSchema = new mongoose.Schema({
   location: String,
   price: Number,
   img: String,
-   farmerId: { type: mongoose.Schema.Types.ObjectId, ref: "Farmer", required: true } // ✅ correct field
+
+
+
+
+    // ✅ Link to farmer
+  farmerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Farmer",
+    required: true,
+  }
+  
 });
 
-
-
-module.exports = mongoose.model("Crop", cropSchema, "crops");
+module.exports = cropSchema;
