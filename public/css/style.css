@@ -1,134 +1,104 @@
-html, body {
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #ffffff;
+* {
+  margin: 0; padding: 0; box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Navbar Styles */
+html, body {
+  background: #f8fdf5;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Navbar */
 .navbar {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #2E7D32, #F5F5DC);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background: linear-gradient(90deg, #4caf50, #ff9800); /* green → orange */
+  padding: 12px 40px;
+  color: white;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.navbar-brand img {
+.navbar img {
   height: 40px;
-  margin-right: 10px;
   border-radius: 50%;
+  margin-right: 10px;
 }
-
-.navbar-brand span {
-  color: #F5F5DC;
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px #2E7D32;
-}
-
-.navbar-links a {
-  color: #16b61e;
+.navbar-brand {
+  display: flex; align-items: center;
+  font-size: 1.4rem; font-weight: 700; color: white;
   text-decoration: none;
-  margin-left: 1.5rem;
-  font-size: 1.25rem;
-  transition: color 0.3s ease;
 }
-
-.navbar-links a:hover,
-.navbar-links a:focus {
-  color: #000;
+.navbar-links a {
+  margin-left: 20px; text-decoration: none; font-weight: 600;
+  color: white; position: relative;
 }
-
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navbar-links {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navbar-links a {
-    margin: 0.5rem 0;
-  }
+.navbar-links a::after {
+  content: ""; position: absolute; width: 0; height: 2px;
+  left: 0; bottom: -3px; background: white;
+  transition: width 0.3s;
 }
+.navbar-links a:hover::after { width: 100%; }
 
-/* Slideshow Container */
+/* Slideshow */
 .slideshow-container {
-  width: 80%;
-  max-width: 800px;
-  height: 400px;
-  margin: 4rem auto;
   position: relative;
-  border-radius: 25px;
+  height: 100vh; 
   overflow: hidden;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
-
 .slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  position: absolute; width: 100%; height: 100%;
+  opacity: 0; transition: opacity 1s ease-in-out;
 }
-
 .slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover;
   display: block;
 }
+.slide.active { opacity: 1; }
 
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-}
-
+/* Overlay */
 .overlay {
-  position: absolute;
-  top: 0; /* Corrected from top: 100; */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.35);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  display: flex; flex-direction: column; justify-content: center;
+  align-items: center; text-align: center;
+  padding: 20px;
+}
+.overlay h1 {
+  font-size: 3rem; font-weight: 700; color: white;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
+/* Buttons */
 .overlay button {
-  margin-top: 150px; /* Corrected from margin-top: 150px; */
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  background-color: #F5F5DC;
-  color: #2E7D32;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
+  margin: 10px; padding: 14px 32px;
+  border: none; border-radius: 30px;
+  font-size: 1rem; font-weight: 600; cursor: pointer;
+  color: white; transition: all 0.3s ease-in-out;
+  animation: bounceIn 1s ease forwards;
+}
+.login-btn1 {
+  background: linear-gradient(135deg, #43a047, #81c784);
+}
+.login-btn2 {
+  background: linear-gradient(135deg, #1565c0, #64b5f6);
+}
+.overlay button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
 }
 
-.overlay button:hover {
-  background-color: #dce775;
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
 }

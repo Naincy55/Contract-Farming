@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CropSet</title>
-  <!-- <link rel="stylesheet" href="style.css"> -->
-   <link rel="stylesheet" href="css/style.css"/>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- AOS Animation Library -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,27 +20,41 @@
       <span>CropSet</span>
     </a>
     <div class="navbar-links">
-      <a href="/about"><b>About</b></a>
-      <a href="/contact"><b>Contact Us</b></a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact Us</a>
     </div>
   </nav>
 
-  <!-- Slideshow Section -->
+  <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="slide active">
-      <img src="https://media.istockphoto.com/id/503646746/photo/farmer-spreading-fertilizer-in-the-field-wheat.jpg?b=1&s=612x612&w=0&k=20&c=ISo0xFDU33Pe6TlsfCQas3yu8JclOOededZvS6IRTs4=" alt="Slide 1">
+      <img src="https://images.pexels.com/photos/155274/pexels-photo-155274.jpeg" alt="Farmers in field">
     </div>
     <div class="slide">
-      <img src="https://images.pexels.com/photos/2382904/pexels-photo-2382904.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Slide 2">
+      <img src="https://images.pexels.com/photos/1637261/pexels-photo-1637261.jpeg" alt="Crop field">
     </div>
     <div class="slide">
-      <img src="https://images.pexels.com/photos/221016/pexels-photo-221016.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Slide 3">
+      <img src="https://images.pexels.com/photos/6216870/pexels-photo-6216870.jpeg" alt="Farm market">
     </div>
+    <div class="slide">
+      <img src="https://images.pexels.com/photos/31929997/pexels-photo-31929997.jpeg" alt="Farm market">
+    </div>
+    <div class="slide">
+      <img src="images/bgfront.jpg" alt="Login Background">
+    </div>
+    </div>
+
+    <!-- Overlay -->
     <div class="overlay">
-      <button onclick="window.location.href='/login'">Get Started</button>
+      <h1><span id="typed"></span></h1>
+      <button class="login-btn1" onclick="window.location.href='/loginfarmer'" data-aos="zoom-in">Login as Farmer</button>
+      <button class="login-btn2" onclick="window.location.href='/loginbuyer'" data-aos="zoom-in" data-aos-delay="200">Login as Buyer</button>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="/js/script.js"></script>
 </body>
 </html>

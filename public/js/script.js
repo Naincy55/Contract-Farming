@@ -1,10 +1,19 @@
-const slides = document.querySelectorAll('.slide');
-let current = 0;
+// Slideshow
+let slides = document.querySelectorAll('.slide');
+let index = 0;
+setInterval(() => {
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}, 4000);
 
-function showNextSlide() {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}
+// AOS Initialization
+AOS.init();
 
-setInterval(showNextSlide, 4000);
+// Typed.js Effect
+var typed = new Typed("#typed", {
+  strings: ["Welcome to CropSet", "Connecting Farmers & Buyers", "Assured Contract Farming System"],
+  typeSpeed: 50,
+  backSpeed: 30,
+  loop: true
+});

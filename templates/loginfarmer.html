@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contract Farm Login</title>
+    <link rel="stylesheet" href="css/loginfarmer.css" />
+  </head>
+
+  <body id="page-body">
+    <div class="login-box">
+      <h1>
+        <span class="logo-circle">
+          <img src="images/logo.jpg" alt="CropSet Logo" />
+        </span>
+        <span class="title">CropSet</span>
+      </h1>
+
+      
+
+      <!-- ✅ Start form -->
+      <form autocomplete="off" onsubmit="loginfarmer(); return false;">
+        <input type="text" id="email" placeholder="Email" autocomplete="off" />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          autocomplete="new-password"
+        />
+
+        <span class="error-msg" id="error" style="display: none"
+          >Invalid email or password.</span
+        >
+
+        <div class="checkbox">
+          <input type="checkbox" id="remember" checked />
+          <label for="remember">Remember me</label>
+        </div>
+
+        <button type="submit" class="login-btn buyer" id="login-button">
+          Login
+        </button>
+      </form>
+      <!-- ✅ End form -->
+
+      <div class="signup">
+        New here? <a href="/newaccountfar">Create an account</a>
+      </div>
+    </div>
+    
+    <!-- ✅ Login JS -->
+    <script src="js/loginfarmer.js">
+
+      if (window.location.search === "?") {
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+    </script>
+  </body>
+</html>

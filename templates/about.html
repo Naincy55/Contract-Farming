@@ -4,96 +4,156 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - CropSet</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/about.css">
 </head>
-
 <body>
-  <header>
+<!-- Navbar -->
+<nav>
+  <div class="logo">
+    <img src="images/logo.jpg" alt="CropSet Logo">
+    <span>CropSet</span>
+  </div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Features</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<header>
+  <div class="hero-content">
     <h1>About CropSet</h1>
     <p>Empowering Farmers. Enabling Buyers. Ensuring Growth.</p>
-
-    <div class="slider">
-      <img src="images/img1.jpg" class="slide-image active" />
-      <img src="images/img2.jpg" class="slide-image" />
-      <img src="images/img3.jpg" class="slide-image" />
-      <img src="images/img4.jpg" class="slide-image" />
-    </div>
-  </header>
-
-  <div class="container">
-    <section>
-      <h2><strong>Our Mission</strong></h2>
-      <p>
-        At CropSet, we aim to revolutionize the agriculture ecosystem by connecting farmers and buyers through transparent, secure, and profitable contract farming. Our goal is to ensure stable market access for farmers and consistent quality produce for buyers.
-      </p>
-    </section>
-
-    <section>
-      <h2><strong>The Problem We Solve</strong></h2>
-      <p>
-        Farmers often face unpredictable markets, unfair pricing, and delayed payments. Buyers struggle to source reliable produce consistently. CropSet bridges this gap with a digital platform that simplifies contracting, communication, and payment tracking.
-      </p>
-    </section>
-
-    <section>
-      <h2><strong>Our Solution</strong></h2>
-      <ul>
-        <li>Buyer-Farmer Role-Based Login</li>
-        <li>Digital contract generation & tracking</li>
-        <li>Payment milestone notifications</li>
-        <li>Verified user profiles</li>
-        <li>Real-time communication and alerts</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><strong>Key Features</strong></h2>
-      <div class="feature-list">
-        <div class="feature">
-          <strong>Secure Login System</strong>
-          <p>Buyer and Farmer roles with toggle-based login & authentication.</p>
-        </div>
-        <div class="feature">
-          <strong>Digital Contracts</strong>
-          <p>Create and manage farming contracts easily with full transparency.</p>
-        </div>
-        <div class="feature">
-          <strong>Payment Tracker</strong>
-          <p>Track advances and final payments with timely updates.</p>
-        </div>
-        <div class="feature">
-          <strong>Responsive Design</strong>
-          <p>Accessible across all devices for seamless experience.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2><strong>Meet the Team</strong></h2>
-      <div class="team-section">
-        <div class="team-member">
-          <strong>Naincy Jaiswal</strong>
-          <p>Frontend Developer</p>
-        </div>
-        <div class="team-member">
-          <strong>Swikriti Suman</strong>
-          <p>Backend Developer</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2><strong>Our Vision</strong></h2>
-      <p>
-        We envision CropSet expanding across regions, offering predictive analytics, AI-powered crop monitoring, and financial insights for all users – with regional language support for inclusivity.
-      </p>
-    </section>
+    <a href="#features" class="cta-btn">Explore Features</a>
   </div>
+</header>
 
-  <footer>
-    <p>&copy; 2025 CropSet | Built with ❤️</p>
-  </footer>
+<div class="container">
+  <section>
+    <h2>Our Mission</h2>
+    <p>
+      At CropSet, we aim to revolutionize agriculture by connecting farmers and buyers through transparent, secure, and profitable contract farming.
+    </p>
+  </section>
+<!-- Feature Section -->
 
-  <script src="js/about.js"></script>
+<section id="features">
+  <h2>Our Solution</h2>
+  <div class="feature-list">
+
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <strong>Secure Login System</strong>
+      <p>Separate login for Farmers and Buyers, making it easy to use the platform safely.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">👩‍🌾</div>
+      <strong>Farmer Profiles</strong>
+      <p>Each farmer has their own profile with details stored in a dedicated database.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🌾</div>
+      <strong>Available Crops Display</strong>
+      <p>When a buyer clicks on a farmer’s profile, they can instantly see the crops available for sale.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📱</div>
+      <strong>Simple & Clear Interface</strong>
+      <p>The design is responsive and works smoothly on mobile, tablet, and desktop.</p>
+    </div>
+
+  </div>
+</section>
+
+  <section class="impact">
+    <h2>Our Impact</h2>
+    <div class="impact-stats">
+      <div class="stat"><h3>500+</h3><p>Farmers Empowered</p></div>
+      <div class="stat"><h3>200+</h3><p>Contracts Signed</p></div>
+      <div class="stat"><h3>50+</h3><p>Reliable Buyers</p></div>
+    </div>
+  </section>
+
+  <section class="workflow">
+    <h2>How CropSet Works</h2>
+    <div class="steps">
+      <div class="step">👨‍🌾 Farmer Registers</div>
+      <div class="step">📑 Contract Signed</div>
+      <div class="step">🚚 Produce Delivered</div>
+      <div class="step">💰 Payment Secured</div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-list">
+        <div class="testimonial">
+  <p>"Thanks to CropSet, I finally get fair prices for my harvest without any middlemen interference!"</p>
+  <strong>- Ramesh Yadav, Farmer</strong>
+</div>
+
+<div class="testimonial">
+  <p>"CropSet made it easy to connect with trusted farmers. I now buy directly and save on costs."</p>
+  <strong>- Priya Agarwal, Buyer</strong>
+</div>
+
+<div class="testimonial">
+  <p>"Selling crops has never been this simple! Payments are quick and transparent."</p>
+  <strong>- Mahendra Patel, Farmer</strong>
+</div>
+
+<div class="testimonial">
+  <p>"As a buyer, I receive fresh produce on time with assured quality. Highly recommend CropSet!"</p>
+  <strong>- Anita Sharma, Buyer</strong>
+</div>
+
+<div class="testimonial">
+  <p>"Earlier, I struggled to find stable markets. CropSet gave me confidence and better earnings."</p>
+  <strong>- Sunita Devi, Farmer</strong>
+</div>
+
+<div class="testimonial">
+  <p>"CropSet ensures I get consistent supply for my shop without worrying about middlemen delays."</p>
+  <strong>- Rajesh Kumar, Buyer</strong>
+</div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Meet the Team</h2>
+    <div class="team-section">
+      
+      <div class="team-member">
+        <img src="https://picsum.photos/id/1006/200/200" alt="Swikriti Suman">
+        <strong>Swikriti Suman</strong>
+        <p>Frontend Developer</p>
+      </div>
+
+      <div class="team-member">
+        <img src="https://picsum.photos/id/1005/200/200" alt="Naincy Jaiswal">
+        <strong>Naincy Jaiswal</strong>
+        <p>Backend Developer</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 CropSet | Built with ❤</p>
+</footer>
+
+<!-- External JS -->
+<script src="js/about.js"></script>
 </body>
 </html>

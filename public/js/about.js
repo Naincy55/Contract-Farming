@@ -1,10 +1,12 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide-image');
-
-function showSlides() {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slideIndex = (slideIndex + 1) % slides.length;
-  slides[slideIndex].classList.add('active');
-}
-
-setInterval(showSlides, 3000);
+// Example: Smooth scroll for navigation links
+document.querySelectorAll("nav ul li a").forEach(link => {
+  link.addEventListener("click", function (e) {
+    if (this.getAttribute("href").startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
+});
