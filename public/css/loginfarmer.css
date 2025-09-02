@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background-image: url('https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg');
+  
   font-family: 'Segoe UI', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;

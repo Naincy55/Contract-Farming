@@ -229,6 +229,12 @@ Feature Grid */
 }
 .team-member {
   text-align: center;
+  
+}
+
+.team-member p{
+  margin-top: 20px;
+  margin-left: 150px;
 }
 .team-member img {
   width: 130px;
